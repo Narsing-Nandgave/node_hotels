@@ -11,7 +11,7 @@ const menuItemRoutes = require("./routes/menuRoutes");
 
 app.use(bodyParser.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 // use the routers
 app.use("/person", personRoutes);
 app.use("/menu", menuItemRoutes);
