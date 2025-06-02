@@ -30,16 +30,16 @@ router.get("/", async (req, res) => {
 
 router.get("/:tasteType", async (req, res) => {
   try {
-    const tasteType = req.params.testType;
+    const tasteType = req.params.tasteType;
     if (
       tasteType == "Bitter" ||
       tasteType == "Sweet" ||
       tasteType == "Spicy" ||
       tasteType == "Salty"
     ) {
-      const showMenuItemData = await MenuItem.find({ taste: tasteType });
-      res.status(200).json(showMenuItemData);
-      console.log("Fetched MenuItem data successfully:", showMenuItemData);
+      const response = await MenuItem.find({ taste: tasteType });
+      res.status(200).json(response);
+      console.log("Fetched MenuItem data successfully:", response);
     }
   } catch (error) {
     res.status(404).json({ error: "Taste type is not included" });
