@@ -1,16 +1,17 @@
 const express = require("express");
 const db = require("./db");
-const PORT = 8000;
-const app = express();
 
+const app = express();
+require("dotenv").config();
 const bodyParser = require("body-parser");
 
 /// import the router file
-const personRoutes = require("../mongodb/routes/personRoutes");
+const personRoutes = require("./routes/personRoutes");
 const menuItemRoutes = require("./routes/menuRoutes");
 
 app.use(bodyParser.json());
 
+const PORT = process.env.PORT || 3000;
 // use the routers
 app.use("/person", personRoutes);
 app.use("/menu", menuItemRoutes);
